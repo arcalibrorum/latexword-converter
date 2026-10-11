@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="en-US">
+  <info>
+    <title>Simple Numeric</title>
+    <id>http://www.zotero.org/styles/simple-numeric-local</id>
+    <link href="http://www.zotero.org/styles/simple-numeric-local" rel="self"/>
+    <category citation-format="numeric"/>
+    <updated>2026-07-09T00:00:00+00:00</updated>
+  </info>
+  <macro name="author">
+    <names variable="author">
+      <name initialize-with=". " delimiter=", "/>
+      <label form="short" prefix=", "/>
+      <substitute>
+        <names variable="editor"/>
+        <text variable="title"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="title">
+    <text variable="title" quotes="true"/>
+  </macro>
+  <macro name="container">
+    <choose>
+      <if variable="container-title">
+        <text variable="container-title" font-style="italic"/>
+      </if>
+    </choose>
+  </macro>
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout prefix="[" suffix="]" delimiter=",">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+  <bibliography entry-spacing="0" second-field-align="flush">
+    <layout suffix=".">
+      <text variable="citation-number" prefix="[" suffix="]"/>
+      <group delimiter=", ">
+        <text macro="author"/>
+        <text macro="title"/>
+        <text macro="container"/>
+        <text variable="volume" font-weight="bold"/>
+        <text variable="page"/>
+        <date variable="issued" prefix="(" suffix=")">
+          <date-part name="year"/>
+        </date>
+      </group>
+    </layout>
+  </bibliography>
+</style>

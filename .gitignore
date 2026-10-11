@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.tmp
+*.log
+latex2reviewdocx_work_*/
+documentation/
+install_on_rockfish.sh
+setup_latex2reviewdocx.sh

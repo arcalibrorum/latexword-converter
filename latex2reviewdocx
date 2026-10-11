@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TOOL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
+  python3 "$TOOL_DIR/latex2reviewdocx.py" zip "$@"
+  exit 0
+fi
+
+if command -v pandoc >/dev/null 2>&1; then
+  python3 "$TOOL_DIR/latex2reviewdocx.py" zip --track-changes "$@"
+elif command -v module >/dev/null 2>&1; then
+  python3 "$TOOL_DIR/latex2reviewdocx.py" zip --load-module --track-changes "$@"
+else
+  echo "pandoc was not found."
+  echo "Please install pandoc first, then run this command again."
+  exit 1
+fi
